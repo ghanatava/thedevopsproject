@@ -10,11 +10,24 @@ services:
       context: ./backend
     ports:
       - "8000:8000"
+    depends_on:
+      - postgres
+      
   frontend:
     build:
       context: ./frontend
     volumes:
       - frontend:/app/build
+
+  postgres: 
+    image: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+
   nginx:
     build:
       context: ./nginx
@@ -26,7 +39,9 @@ services:
     depends_on:
       - backend
       - frontend
+      - postgres
 
 volumes:
   static:
   frontend:
+  pgdata:
