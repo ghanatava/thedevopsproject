@@ -12,10 +12,13 @@ axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.withCredentials = true;
 
-const client = axios.create({
-  baseURL: "http://127.0.0.1:8000"
-});
+const backendServiceName = process.env.BACKEND_SERVICE_NAME || "localhost";
+const port = process.env.BACKEND_SERVICE_PORT || 8000;
+const baseURL = `http://${backendServiceName}:${port}`;
 
+const client = axios.create({
+  baseURL: baseURL
+});
 function App() {
 
   const [currentUser, setCurrentUser] = useState();
