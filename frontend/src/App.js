@@ -13,7 +13,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.withCredentials = true;
 
 const backendServiceName = process.env.BACKEND_SERVICE_NAME || "localhost";
-const port = process.env.BACKEND_SERVICE_PORT || 8000;
+const port = parseInt(process.env.BACKEND_SERVICE_PORT, 10) || 8000;
 const baseURL = `http://${backendServiceName}:${port}`;
 
 const client = axios.create({
