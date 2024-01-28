@@ -12,9 +12,9 @@ axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.withCredentials = true;
 
-const backendServiceName = process.env.BACKEND_SERVICE_NAME || "localhost";
-const port = parseInt(process.env.BACKEND_SERVICE_PORT, 10) || 8000;
-const baseURL = `http://${backendServiceName}:${port}`;
+// const backendServiceName = process.env.BACKEND_SERVICE_NAME || "localhost";
+// const port = parseInt(process.env.BACKEND_SERVICE_PORT, 10) || 8000;
+const baseURL = `http://ghanatava.com`;
 
 const client = axios.create({
   baseURL: baseURL
