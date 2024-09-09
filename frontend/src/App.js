@@ -14,7 +14,7 @@ axios.defaults.withCredentials = true;
 
 // const backendServiceName = process.env.BACKEND_SERVICE_NAME || "localhost";
 // const port = parseInt(process.env.BACKEND_SERVICE_PORT, 10) || 8000;
-const baseURL = `http://ghanatava.com`;
+const baseURL = process.env.BACKEND_SERVICE_URL || "http://localhost:8000"
 
 const client = axios.create({
   baseURL: baseURL
